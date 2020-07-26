@@ -65,9 +65,9 @@ class Employee(Person):
 
 
 persons = [
-    Employee(1997, "민지씨", 200, 50, 150, 20),  # False 는 그냥 안넣어도 댐
+    Employee(1997, "문상태", 200, 50, 150, 20),  # False 는 그냥 안넣어도 댐
     Admin(0000, "고문영"),
-    Employee(1991, "선철씨", 400, 50, 350, 20)
+    Employee(1991, "임행태", 400, 50, 350, 20)
 ]
 
 
