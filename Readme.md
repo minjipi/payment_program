@@ -13,7 +13,6 @@ class myParent( object ):
 
     def getChildren( self ):
         return self.children
-
 class myChild( object ):
     def __init__( self, childId, parent ):
         self.id = childId
