@@ -8,7 +8,7 @@
   사원들의 모든 정보 리스트를 열람.(관리자 정보는 제외)
   
 3.입력된 사번이 일반 사원일 때:
-  자신의 임금만 확인 가능.
+  자신의 임금 정보만 확인 가능.
   
 #### 'Person' 클래스
 
@@ -42,16 +42,25 @@
 -'Person' 클래스를 상속받는 'Employee' 클래스.
 
     class Employee(Person):
-    def __init__(self, id, name, pay, deduction, bonus):
+    def __init__(self, id, name, position, pay, deduction, bonus):
         Person.__init__(self, id, name)
+        self.__position = position
         self.__pay = pay
         self.__deduction = deduction
         self.__bonus = bonus
             
-####
+#### 함수 구현
+
     # def get_admin(self):
     #     return self.__admin  -> 관리자는 set 없음. 있어서는 안되므로..
 
+    # positon get,set
+    def get_position(self):
+        return self.__position
+
+    def set_position(self, value):
+        self.__position = value
+        
     # pay get,set
     def get_pay(self):
         return self.__pay
@@ -73,28 +82,25 @@
     def __str__(self):
         # return 'name = %s, age = %d' % (self.name, self.age)
         # return str(self.__id)
-        return "이름 = %s, 월급=%d, 공제액=%d, 보너스=%d, || 실수령액='%d'입니다." % (
-            self.get_name(), self.__pay, self.__deduction, self.__bonus, self.get_realpay())
+        return "이름: %s, 직급: %s, || 월급:%d, 공제액:%d, 보너스:%d, || 실수령액:'%d'입니다." % (
+            self.get_name(), self.get_position(), self.__pay, self.__deduction, self.__bonus, self.get_realpay())
 
 
-직원, 관리자 '모든 사람 리스트':
-
+#### 직원, 관리자 정보. '모든 사람 리스트':
     persons = [
-        Employee(1997, "문상태", 200, 50, 150, 20),  # False 는 그냥 안넣어도 댐
-        Admin(0000, "고문영"),
-        Employee(1991, "임행태", 400, 50, 350, 20)
-    ]
+    Employee(1997, "문상태", "대리", 200, 50, 20),  # False 는 그냥 안넣어도 댐
+    Admin(0000, "고문영"),
+    Employee(1991, "임행태", "팀장", 400, 50, 20)
+]
 
 
-관리자용 모든 리스트 볼 수 있는 함수:
-
+#### 관리자용 모든 리스트 볼 수 있는 함수:
     def show_all():
         for person in persons:
             if type(person) is Employee:
                 print(person)
 
-id 찾는 함수:
-
+#### id 찾는 함수:
     # id 검색
     def find_id(id):
         for i in persons:
@@ -103,7 +109,6 @@ id 찾는 함수:
 
 
 메인 부분:
-
     who_ru = int(input("사번을 입력하세요: "))
     searched = find_id(who_ru)
 
@@ -111,6 +116,7 @@ id 찾는 함수:
         print(searched)
     else:
         show_all()
+
 
 
 + 참고자료:
