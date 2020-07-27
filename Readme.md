@@ -11,7 +11,7 @@
   자신의 임금 정보만 확인 가능.
   
 #### 'Person' 클래스
-
+```python
     class Person:
         def __init__(self, id, name):
             self.__id = id
@@ -31,15 +31,20 @@
         def set_name(self, value):
             self.__name = value
             
+```
+
 -'Person' 클래스를 상속받는 'Admin' 클래스.
+```python
     class Admin(Person):
         def __init__(self, id, name):
             Person.__init__(self, id, name)
 
         def __str__(self): #문자열로 리턴
             return
+```
 
 -'Person' 클래스를 상속받는 'Employee' 클래스.
+``` python
 
     class Employee(Person):
     def __init__(self, id, name, position, pay, deduction, bonus):
@@ -48,6 +53,7 @@
         self.__pay = pay
         self.__deduction = deduction
         self.__bonus = bonus
+```
             
 #### 함수 구현
 
