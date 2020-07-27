@@ -87,6 +87,7 @@
 
 
 #### 직원, 관리자 정보. '모든 사람 리스트':
+
     persons = [
     Employee(1997, "문상태", "대리", 200, 50, 20),  # False 는 그냥 안넣어도 댐
     Admin(0000, "고문영"),
@@ -95,12 +96,14 @@
 
 
 #### 관리자용 모든 리스트 볼 수 있는 함수:
+
     def show_all():
         for person in persons:
             if type(person) is Employee:
                 print(person)
 
 #### id 찾는 함수:
+
     # id 검색
     def find_id(id):
         for i in persons:
@@ -108,7 +111,8 @@
                 return i
 
 
-메인 부분:
+#### 메인 부분:
+
     who_ru = int(input("사번을 입력하세요: "))
     searched = find_id(who_ru)
 
@@ -118,7 +122,7 @@
         show_all()
 
 
-
+-------------------------
 + 참고자료:
 + 클래스 상속
 <https://stackoverflow.com/questions/4935587/python-getting-baseclass-values-from-derived-class>
